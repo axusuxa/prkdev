@@ -3,10 +3,13 @@ services:
   php:
     build: ./php
     volumes:
-      - ./htdocs:/vagrant/wwwroot
+      - ./htdocs:/var/www/html
       - ./htdocs/conf.d:/etc/apache2/sites-enabled
+      - ./logs:/etc/apache2/logs
     ports:
       - "80:80"
+    environment:
+      ENVIRONMENT: local
     depends_on:
       - mysql
       - memcached
