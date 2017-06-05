@@ -3,7 +3,8 @@ services:
   php:
     build: ./php
     volumes:
-      - ./htdocs:/var/www/html
+      - ./apache:/etc/apache2/sites-enabled
+      - ./htdocs:/vagrant/wwwroot
     ports:
       - "80:80"
     depends_on:
@@ -16,9 +17,6 @@ services:
       - "443:443"
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - ./htdocs:/var/www/html
-    depends_on:
-      - php
   memcached:
     image: memcached:alpine
   phpmyadmin:
