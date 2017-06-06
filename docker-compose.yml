@@ -18,8 +18,12 @@ services:
       - "443:443"
     volumes:
       - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - php
   memcached:
     image: memcached:alpine
+    ports:
+      - "10051:11211"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
