@@ -4,5 +4,5 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 RUN docker-php-ext-install gd mysql mysqli pdo_mysql
 RUN pecl install memcache
 RUN printf "\n" | pecl install memcached-2.2.0
-RUN docker-php-ext-enable memcached
+RUN docker-php-ext-enable memcache memcached
 ADD php.ini /usr/local/etc/php
