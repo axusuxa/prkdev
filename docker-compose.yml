@@ -22,8 +22,7 @@ services:
       - php
   memcached:
     image: memcached:alpine
-    ports:
-      - "10051:11211"
+    command: memcached -l 0.0.0.0:10051
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
