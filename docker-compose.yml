@@ -11,6 +11,7 @@ services:
     depends_on:
       - mysql
       - memcached
+      - redis
       - elasticsearch
   nginx:
     image: nginx:latest
@@ -23,6 +24,8 @@ services:
   memcached:
     image: memcached:alpine
     command: memcached -l 0.0.0.0:10051
+  redis:
+    image: redis:alpine
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
